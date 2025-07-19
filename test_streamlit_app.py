@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_openai.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
 st.title("Test Streamlit LLM Chat App")
 
