@@ -75,7 +75,7 @@ if model:
     def generate_response(input_text):
         try:
             response = model.invoke(input_text)
-            st.info(response)
+            st.info(response.content)
         except Exception as e:
             st.error(f"Error calling model: {e}")
 
