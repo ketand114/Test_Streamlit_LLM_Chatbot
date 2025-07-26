@@ -72,20 +72,33 @@ if api_key:
         st.error(f"Error initializing model: {e}")
 
 if model:
-    def generate_response(input_text):
+    # Initialize chat history in session state
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    # Display chat history
+    for msg in st.session_state.messages:
+        if msg["role"] == "user":
+            st.chat_message("user").write(msg["content"])
+        else:
+            st.chat_message("assistant").write(msg["content"])
+    
+    # Chat input at the bottom
+    user_input = st.chat_input("Type your message...")
+    if user_input:
+        # Add user message to history
+        st.session_state.messages.append({"role": "user", "content": user_input})
+        st.chat_message("user").write(user_input)
+
         try:
-            response = model.invoke(input_text)
-            st.info(response.content)
+            # Call the model
+            response = model.invoke(user_input)
+            assistant_reply = response.content
+
+            # Add assistant reply to history
+            st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
+            st.chat_message("assistant").write(assistant_reply)
         except Exception as e:
             st.error(f"Error calling model: {e}")
-
-    with st.form("my_form"):
-        text = st.text_area(
-            "Enter text:",
-            "What are the three key pieces of advice for learning how to code?",
-        )
-        submitted = st.form_submit_button("Submit")
-        if submitted:
-            generate_response(text)
 else:
     st.warning("Please enter your API key and choose a provider.", icon="⚠")
