@@ -84,7 +84,7 @@ if model:
             st.chat_message("assistant").write(msg["content"])
     
     # Chat input at the bottom
-    user_input = st.chat_input("Type your message...")
+    user_input = st.chat_input("Type your question...")
     if user_input:
         # Add user message to history
         st.session_state.messages.append({"role": "user", "content": user_input})
