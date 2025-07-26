@@ -3,7 +3,8 @@
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain_together import ChatTogether
-from langchain_community.chat_models import ChatGroq, ChatHuggingFace
+from langchain_groq import ChatGroq
+from langchain_community.chat_models import ChatHuggingFace
 from langchain_anthropic import ChatAnthropic
 from langchain_perplexity import ChatPerplexity
 
