@@ -6,3 +6,4 @@ langchain-anthropic
 langchain-together
 langchain-perplexity
 langchain-community
+langchain-groq
