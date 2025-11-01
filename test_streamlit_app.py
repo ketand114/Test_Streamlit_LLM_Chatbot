@@ -2,7 +2,7 @@
 
 import streamlit as st
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_together import ChatTogether
+#from langchain_together import ChatTogether
 from langchain_groq import ChatGroq
 from langchain_community.chat_models import ChatHuggingFace
 from langchain_anthropic import ChatAnthropic
