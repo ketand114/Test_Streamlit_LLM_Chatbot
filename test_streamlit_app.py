@@ -8,12 +8,13 @@ from langchain_community.chat_models import ChatHuggingFace
 from langchain_anthropic import ChatAnthropic
 from langchain_perplexity import ChatPerplexity
 
-st.title("🧪 Test Streamlit Multi-LLM Chat App")
+st.title("🧪 Simple Test Multi-LLM Chat App")
 
 # Sidebar: choose provider
 provider = st.sidebar.selectbox(
     "Choose LLM Provider:",
-    ("OpenAI", "Together", "Groq", "Hugging Face", "Anthropic", "Perplexity")
+    ("OpenAI", # "Together", 
+     "Groq", "Hugging Face", "Anthropic", "Perplexity")
 )
 
 # Sidebar: api key & optional model name
@@ -31,17 +32,17 @@ if api_key:
                 temperature=0.7
             )
 
-        elif provider == "Together":
-            model = ChatTogether(
-                together_api_key=api_key,
-                model=model_name or "mistralai/Mistral-7B-Instruct-v0.2",
-                temperature=0.7
-            )
+        #elif provider == "Together":
+        #    model = ChatTogether(
+        #        together_api_key=api_key,
+        #        model=model_name or "mistralai/Mistral-7B-Instruct-v0.2",
+        #        temperature=0.7
+        #    )
 
         elif provider == "Groq":
             model = ChatGroq(
                 groq_api_key=api_key,
-                model_name=model_name or "llama3-8b-8192",
+                model_name=model_name or "llama3.1-8b-instant",
                 temperature=0.7
             )
 
@@ -63,7 +64,7 @@ if api_key:
         elif provider == "Perplexity" and api_key.startswith("pplx-"):
             model = ChatPerplexity(
                 perplexity_api_key=api_key,
-                model=model_name or "pplx-7b-online",
+                model=model_name or "sonar-pro",
                 temperature=0.7
             )
         else:
