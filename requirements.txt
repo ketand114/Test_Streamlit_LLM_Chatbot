@@ -6,8 +6,6 @@ langchain-core
 lanchain_core
 langchain-openai
 langchain-anthropic
-langchain-together
-lanchain_together
 langchain-perplexity
 langchain-community
 langchain_community
