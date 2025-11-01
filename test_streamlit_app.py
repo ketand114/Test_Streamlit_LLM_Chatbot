@@ -8,7 +8,7 @@ from langchain_community.chat_models import ChatHuggingFace
 from langchain_anthropic import ChatAnthropic
 from langchain_perplexity import ChatPerplexity
 
-st.title("🧪 Simple Test Multi-LLM Chat App")
+st.title("🧪 Test Multi-LLM Chat App 🧪")
 
 # Sidebar: choose provider
 provider = st.sidebar.selectbox(
