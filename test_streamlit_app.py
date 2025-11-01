@@ -42,7 +42,7 @@ if api_key:
         elif provider == "Groq":
             model = ChatGroq(
                 groq_api_key=api_key,
-                model_name=model_name or "llama3.1-8b-instant",
+                model_name=model_name or "llama-3.1-8b-instant",
                 temperature=0.7
             )
 
